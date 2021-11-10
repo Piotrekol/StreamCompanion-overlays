@@ -4,6 +4,6 @@ This folder contains overlays that are periodically taken from [this repository]
 
 ## Manual update steps
 
-* remove current overlays
-* unpack newest overlays in this folder
+* remove current overlays from `conv` folder
+* unpack newest overlays in `conv` folder
 * run convert.bat
