@@ -46,7 +46,6 @@ const LineChart = {
             this.updateChart()
         },
         settings() {
-            console.log('settings updated:', JSON.stringify(this.settings));
             let settings = { ...this.defaultSettings, ...this.settings };
 
             this.chart.data.datasets[0].backgroundColor = settings.backgroundColor;

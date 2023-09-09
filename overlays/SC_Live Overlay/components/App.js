@@ -25,7 +25,7 @@ const app = {
     const getWebOverlaySettings = () =>
       fetch(`${window.overlay.config.getUrl()}/settings`)
         .then((response) => response.json())
-        .then((responseData) => JSON.parse(responseData.WebOverlay_Config));
+        .then((responseData) => responseData.WebOverlay_Config);
 
     getWebOverlaySettings().then((config) => {
       Object.assign(data.settings, config);
