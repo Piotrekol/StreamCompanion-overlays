@@ -47,6 +47,12 @@
         padding-top: 10px;
     }
 
+    .preview-iframe {
+        overflow: hidden;
+        height: 0px;
+        width: 100%;
+    }
+
     a {
         color: #0072f3;
         text-decoration: none;
@@ -115,8 +121,8 @@
             <div class="preview" v-for="overlayName in currentOverlays">
                 <h2><a :href="overlayUrl(overlayName)" target="_blank">{{overlayName}}</a></h3>
                     <h3 v-if="loadedOverlays.indexOf(overlayName)==-1">Loading...</h3>
-                    <iframe :id="overlayName" frameBorder="0" style="overflow:hidden;height:0px;width:100%"
-                        :src="overlayUrl(overlayName)" onload='javascript:autosize(this);'>
+                    <iframe :id="overlayName" frameBorder="0" class="preview-iframe" :style="iframeStyle" :src="overlayUrl(overlayName)"
+                        onload='javascript:autosize(this);'>
                     </iframe>
             </div>
 
@@ -126,7 +132,7 @@
             </div>
         </div>
         <div class="box">
-            <h2>Installed overlays:</h2>
+            <h2>Listed overlays:</h2>
             <div v-for="overlayName in overlays"><a :href="overlayUrl(overlayName)">{{overlayName}}</a></div>
 
         </div>
@@ -140,6 +146,8 @@
 
     </div>
     <script type="text/javascript">
+        const urlParams = new URLSearchParams(window.location.search);
+        
         function autosize(iframe) {
             setTimeout(() => {
                 if (iframe.contentWindow.document.body.scrollHeight > 0)
@@ -180,6 +188,13 @@
                         this.p_userCurrentPage = newValue;
                         this.loadedOverlays.splice(0);
                     }
+                },
+                iframeStyle: function(){
+                    const style = urlParams.get('style');
+                    console.log(style);
+                    if(style!==null)
+                        return style;
+                    return '';
                 }
             },
             created: function () {
@@ -187,7 +202,13 @@
                 let t = this;
                 fetch(`${t.config.getUrl()}/overlayList`)
                     .then(response => response.json())
-                    .then(data => t.overlays = data);
+                    .then(data => {
+                        const filter = urlParams.get('filter');
+                        if (filter !== null)
+                            return t.overlays = data.filter((name) => name.indexOf(filter) !== -1);
+
+                        return t.overlays = data;
+                    });
             }
         })
     </script>
