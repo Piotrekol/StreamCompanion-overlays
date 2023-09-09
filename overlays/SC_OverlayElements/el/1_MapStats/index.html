@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>SC_OverlayElements - 1 MapStats</title>
+	<link href="../../Shared/main.css" rel="stylesheet" />
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet" /> -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,600,700,800" rel="stylesheet">
+
+
+	<!-- This is a development version of Vue.js -->
+	<!-- <script src="https://unpkg.com/vue@3.2.45/dist/vue.global.js"></script> -->
+	<script src="https://unpkg.com/vue@3.2.45/dist/vue.global.prod.js"></script>
+	<script src="/lib/reconnecting-websocket.js"></script>
+	<script src="/lib/consts.js"></script>
+	<script src="/lib/utils.js"></script>
+</head>
+
+<body>
+	<div id="overlay" v-cloak>
+		<div v-if="isPlayingOrWatching" class="mapinfo">
+			<span class="bpm">{{getToken('mMainBpm')}} BPM</span>
+			<span class="cs">CS: {{getToken('mCS')}}</span>
+			<span class="ar">AR: {{getToken('mAR')}}</span>
+			<span class="od">OD: {{getToken('mOD')}}</span>
+			<span class="hp">HP: {{getToken('mHP')}}</span>
+			<span class="stars">{{getToken('mStars',2)}} ★</span>
+		</div>
+	</div>
+	<script src="../../Shared/main.js" type="module"></script>
+</body>
+
+</html>

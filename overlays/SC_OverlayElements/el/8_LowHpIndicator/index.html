@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>SC_OverlayElements - 1 MapStats</title>
+	<link href="../../Shared/main.css" rel="stylesheet" />
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet" /> -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,600,700,800" rel="stylesheet">
+
+
+	<!-- This is a development version of Vue.js -->
+	<!-- <script src="https://unpkg.com/vue@3.2.45/dist/vue.global.js"></script> -->
+	<script src="https://unpkg.com/vue@3.2.45/dist/vue.global.prod.js"></script>
+	<script src="/lib/reconnecting-websocket.js"></script>
+	<script src="/lib/consts.js"></script>
+	<script src="/lib/utils.js"></script>
+</head>
+
+<body>
+	<div id="overlay" v-cloak>
+		<img v-if="isPlayingOrWatching" v-show="getToken('playerHp')<120" src="../../Shared/assets/lowHP.gif"
+			style="width: 100px;height: 100px;opacity:0.85;">
+
+	</div>
+
+	<script src="../../Shared/main.js" type="module"></script>
+</body>
+
+</html>
