@@ -1,0 +1,1 @@
+Replace lowHP.gif with your image and adjust width and height in index.html if it's different (100x100)
