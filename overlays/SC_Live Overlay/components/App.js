@@ -61,15 +61,15 @@ const app = {
       let s = this.data.settings;
 
       return {
-        backgroundColor: s.ChartColor,
-        chartProgressColor: s.ChartProgressColor,
-        imageDimColor: s.ImageDimColor,
-        artistTextColor: s.ArtistTextColor,
-        titleTextColor: s.TitleTextColor,
-        ppBackgroundColor: s.PpBackgroundColor,
-        hit100BackgroundColor: s.Hit100BackgroundColor,
-        hit50BackgroundColor: s.Hit50BackgroundColor,
-        hitMissBackgroundColor: s.HitMissBackgroundColor,
+        backgroundColor: ColorFromDotNetColor(s.ChartColor),
+        chartProgressColor: ColorFromDotNetColor(s.ChartProgressColor),
+        imageDimColor: ColorFromDotNetColor(s.ImageDimColor),
+        artistTextColor: ColorFromDotNetColor(s.ArtistTextColor),
+        titleTextColor: ColorFromDotNetColor(s.TitleTextColor),
+        ppBackgroundColor: ColorFromDotNetColor(s.PpBackgroundColor),
+        hit100BackgroundColor: ColorFromDotNetColor(s.Hit100BackgroundColor),
+        hit50BackgroundColor: ColorFromDotNetColor(s.Hit50BackgroundColor),
+        hitMissBackgroundColor: ColorFromDotNetColor(s.HitMissBackgroundColor),
         yAxesFontColor: s.HideChartLegend ? 'transparent' : 'white',
 
         simulatePPWhenListening: s.SimulatePPWhenListening,

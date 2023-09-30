@@ -42,9 +42,7 @@ const background = {
         );
       }
     );
-    Vue.onMounted(() => {
-      console.log(backgroundDiv.value);
-    });
+    
     data.rws = watchTokens(['backgroundImageLocation', 'md5', 'mapsetid'], (values) => Object.assign(data.tokens, values));
 
     return {
