@@ -226,13 +226,18 @@ body {
 }
 
 .ur {
-	position: absolute;
+	/* position: absolute; */
 	text-align: center;
-	right: 47.5%;
+	/*right: 47.5%;*/
 	/* bottom: 25px; */
 	bottom: 0;
 	font-size: 20px;
 	font-weight: 700;
+}
+
+.ur-preview {
+	position: absolute;
+	right: 47.5%;
 }
 
 .hits {
