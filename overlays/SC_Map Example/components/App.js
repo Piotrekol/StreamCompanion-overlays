@@ -18,9 +18,9 @@ const app = {
     data.rws = watchTokens([], (values) => {
       Object.assign(data.tokens, values);
     });
-    
+
     const totalTime = Vue.computed(() => {
-      let time = getToken('totaltime');
+      const time = ApplyModsToTime(getToken('totaltime'), getToken('modsEnum'));
       return (
         Math.floor(time / 1000 / 60).pad() +
         ':' +
